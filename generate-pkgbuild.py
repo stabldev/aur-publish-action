@@ -4,16 +4,16 @@ from pathlib import Path
 
 pkgname = environ.get("INPUT_PKGNAME")
 pkgver = environ.get("INPUT_PKGVER")
-pkgbuild_dir = environ.get("INPUT_PKGBUILD_DIR")
+pkgbuild = environ.get("INPUT_PKGBUILD")
 
-if not pkgname or not pkgver or not pkgbuild_dir:
+if not pkgname or not pkgver or not pkgbuild:
     print("::error::Missing required inputs")
     exit(1)
 
 output_dir = Path(f"./pkgbuild/{pkgname}")
 output_dir.mkdir(parents=True, exist_ok=True)
 
-template_path = Path(pkgbuild_dir) / "PKGBUILD"
+template_path = Path(pkgbuild)
 template_content = template_path.read_text()
 
 maintainer = ""
@@ -30,6 +30,4 @@ dynamic_fields = f"pkgname={pkgname}\n"
 dynamic_fields += f"pkgver={pkgver}\n"
 
 content = maintainer + "\n" + dynamic_fields + body.lstrip("\n")
-(output_dir / "PKGBUILD").write_text(
-    content
-)  # pyright: ignore[reportUnusedCallResult]
+(output_dir / "PKGBUILD").write_text(content)  # pyright: ignore[reportUnusedCallResult]
