@@ -1,4 +1,4 @@
-name: "Publish AUR Package"
+name: "Publish AUR Package (stabldev)"
 description: "Generate and publish PKGBUILD to AUR"
 author: "stabldev"
 inputs:
