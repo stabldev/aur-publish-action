@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+# NOTE: this is for testing docker container
 set -euo pipefail
 
 # config variables
 PKGNAME="aur-test-pkg"
 PKGVER="1.0.0"
-PKGBUILD="/workspace/aur-template/PKGBUILD"
+PKGBUILD="/workspace/pkgbuild-template/PKGBUILD"
 AUR_SSH_PRIVATE_KEY="$HOME/.ssh/id_aur"
 
 # 1. build the image
