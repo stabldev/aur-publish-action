@@ -1,8 +1,9 @@
 FROM archlinux:latest
 
 # install required packages
-RUN pacman -Syu --noconfirm && \
-    pacman -S --noconfirm base-devel git python openssh pacman-contrib
+RUN pacman -Syu --noconfirm --needed \
+    base-devel git python openssh pacman-contrib \
+    && pacman -Scc --noconfirm
 
 # add action files
 COPY entrypoint.sh /entrypoint.sh

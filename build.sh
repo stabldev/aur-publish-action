@@ -9,9 +9,8 @@ ssh-keyscan aur.archlinux.org >> ~/.ssh/known_hosts
 echo "::endgroup::"
 
 echo "::group::Importing private key"
-mkdir -p ~/.ssh
-echo "$INPUT_AUR_SSH_PRIVATE_KEY" > ~/.ssh/aur
-chmod -vR 600 ~/.ssh/aur*
+echo "$INPUT_AUR_SSH_PRIVATE_KEY" > ~/.ssh/id_aur
+chmod 600 ~/.ssh/id_aur
 echo "::endgroup::"
 
 echo "::group::Generating PKGBUILD"

@@ -29,7 +29,7 @@ for line in template_content.splitlines(True):
 dynamic_fields = f"pkgname={pkgname}\n"
 dynamic_fields += f"pkgver={pkgver}\n"
 
-content = maintainer + "\n" + dynamic_fields + body.replace("\n", "", 1)
+content = maintainer + "\n" + dynamic_fields + body.lstrip("\n")
 (output_dir / "PKGBUILD").write_text(
     content
 )  # pyright: ignore[reportUnusedCallResult]
