@@ -8,9 +8,10 @@ inputs:
   pkgver:
     description: "AUR package version"
     required: true
-  pkgbuild:
+  pkgbuild_template:
     description: "Path to PKGBUILD template"
-    required: true
+    required: false
+    default: "./pkgbuild-template/PKGBUILD"
   commit_username:
     description: "The username to use when creating new commit"
     required: false

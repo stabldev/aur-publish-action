@@ -4,16 +4,16 @@ from pathlib import Path
 
 pkgname = environ.get("INPUT_PKGNAME")
 pkgver = environ.get("INPUT_PKGVER")
-pkgbuild = environ.get("INPUT_PKGBUILD")
+pkgbuild_template = environ.get("INPUT_PKGBUILD_TEMPLATE")
 
-if not pkgname or not pkgver or not pkgbuild:
+if not pkgname or not pkgver or not pkgbuild_template:
     print("::error::Missing required inputs")
     exit(1)
 
 output_dir = Path(f"./pkgbuild/{pkgname}")
 output_dir.mkdir(parents=True, exist_ok=True)
 
-template_path = Path(pkgbuild)
+template_path = Path(pkgbuild_template)
 template_content = template_path.read_text()
 
 maintainer = ""
