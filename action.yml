@@ -1,0 +1,20 @@
+name: "Publish AUR Package"
+description: "Generate and publish PKGBUILD to AUR"
+author: "stabldev"
+inputs:
+  pkgname:
+    description: "Package name"
+    required: true
+  pkgver:
+    description: "Package version"
+    required: true
+  pkgbuild_dir:
+    description: "Path to PKGBUILD template"
+    required: true
+    default: "./aur-template"
+  aur_ssh_private_key:
+    description: "Private key for AUR git"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"

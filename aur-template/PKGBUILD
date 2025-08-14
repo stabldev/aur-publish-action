@@ -1,0 +1,14 @@
+# Maintainer: stabldev <thestabldev@gmail.com>
+# This is not a full PKGBUILD
+# pkgname, pkgver, and sha256sums are to be generated
+
+pkgrel=1
+pkgdesc="Empty test package"
+arch=("any")
+license=("MIT")
+source=("https://github.githubassets.com/favicons/favicon.png")
+sha256sums=()
+
+package() {
+  install -Dm644 "$srcdir/favicon.png" "$pkgdir/usr/share/$pkgname/favicon.png"
+}
