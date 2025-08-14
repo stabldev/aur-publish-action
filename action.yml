@@ -11,6 +11,14 @@ inputs:
   pkgbuild:
     description: "Path to PKGBUILD template"
     required: true
+  commit_username:
+    description: "The username to use when creating new commit"
+    required: false
+    default: "github-actions[bot]"
+  commit_email:
+    description: "The email to use when creating new commit"
+    required: false
+    default: "41898282+github-actions[bot]@users.noreply.github.com"
   aur_ssh_private_key:
     description: "Your private key with access to AUR package."
     required: true

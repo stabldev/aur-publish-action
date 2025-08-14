@@ -18,8 +18,8 @@ python /generate-pkgbuild.py
 echo "::endgroup::"
 
 echo "::group::Configuring Git"
-git config --global user.name "github-actions[bot]"
-git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+git config --global user.name "$INPUT_COMMIT_USERNAME"
+git config --global user.email "$INPUT_COMMIT_EMAIL"
 echo "::endgroup::"
 
 echo "::group::Cloning AUR repo"
