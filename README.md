@@ -54,7 +54,7 @@ jobs:
         with:
           pkgname: my-awesome-package
           pkgver: ${{ github.ref_name }}
-          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+          aur_ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
 ```
 
 **Tip:** To create secrets (such as `secrets.AUR_USERNAME`, `secrets.AUR_EMAIL`, and `secrets.AUR_SSH_PRIVATE_KEY` above), go to `$YOUR_GITHUB_REPO_URL/settings/secrets`.  
