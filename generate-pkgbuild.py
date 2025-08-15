@@ -10,11 +10,19 @@ if not pkgname or not pkgver or not pkgbuild_template:
     print("::error::Missing required inputs")
     exit(1)
 
+template_path = Path(pkgbuild_template)
+if not template_path.is_absolute():
+    workspace = Path(environ.get("GITHUB_WORKSPACE", "/github/workspace"))
+    template_path = workspace / template_path
+
+if not template_path.exists():
+    print(f"::error::PKGBUILD template file not found: {template_path}")
+    exit(1)
+
+template_content = template_path.read_text()
+
 output_dir = Path(f"./pkgbuild/{pkgname}")
 output_dir.mkdir(parents=True, exist_ok=True)
-
-template_path = Path(pkgbuild_template)
-template_content = template_path.read_text()
 
 maintainer = ""
 body = ""
